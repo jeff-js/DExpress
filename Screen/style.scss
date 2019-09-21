@@ -1,0 +1,203 @@
+@import "node_modules/bootstrap/scss/functions";
+@import "node_modules/bootstrap/scss/variables";
+@import "node_modules/bootstrap/scss/mixins/_breakpoints";
+
+$red: #EF233C;
+$red-dark: #D90429;
+
+body {
+  margin: 0;
+  font-family: Nunito, sans-serif !important;
+  font-size: 0.8rem !important;
+  font-weight: 400;
+}
+
+.fixed-background {
+  background: url("images/pizza.jpg") no-repeat 50% fixed;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+#login .card {
+  background: transparent;
+  border: initial;
+  box-shadow: 0 1px 15px rgba(0, 0, 0, 0.04), 0 1px 6px rgba(0, 0, 0, 0.04);
+  border-radius: 0.75rem;
+}
+
+#login .card .card-title {
+  font-size: 1.1rem;
+}
+
+#login .image-side {
+  background: rgba(0, 0, 0, 0.65);
+  border-top-left-radius: 0.75rem;
+  border-top-right-radius: 0.75rem;
+  border-bottom-left-radius: 0;
+  padding: 16px 40px;
+}
+
+#login .content-side {
+  background: white;
+  border-top-right-radius: 0;
+  border-bottom-left-radius: 0.75rem;
+  border-bottom-right-radius: 0.75rem;
+  padding: 8px 16px;
+}
+
+#login .logo-shop {
+  height: 136px;
+}
+
+#login .logo img {
+  height: 40px;
+}
+
+@include media-breakpoint-up(md) {
+  #login .image-side {
+    border-top-right-radius: 0;
+    border-bottom-left-radius: 0.75rem;
+  }
+  #login .content-side {
+    border-top-right-radius: 0.75rem;
+    border-bottom-left-radius: 0;
+    padding: 16px 32px;
+  }
+  #login .logo img {
+    height: 64px;
+  }
+}
+
+@include media-breakpoint-up(lg) {
+  #login .logo-shop {
+    height: 160px;
+  }
+  #login .content-side {
+    padding: 24px 40px;
+  }
+}
+
+//  Input
+
+.has-float-label {
+  display: block;
+  position: relative;
+}
+
+.has-float-label > span:last-of-type,
+.has-float-label label {
+  position: absolute;
+  cursor: text;
+  font-size: 90%;
+  opacity: 1;
+  top: -0.4em;
+  left: 0.75rem;
+  z-index: 3;
+  line-height: 1;
+  padding: 0 1px;
+}
+
+.has-float-label > span:after,
+.has-float-label label:after {
+  content: " ";
+  display: block;
+  position: absolute;
+  height: 5px;
+  top: 3px;
+  left: -0.2em;
+  right: -0.2em;
+  z-index: -1;
+}
+
+.has-float-label > span,
+.has-float-label label,
+.has-top-label > span,
+.has-top-label label {
+  color: rgba(33, 33, 33, 0.7);
+}
+
+.has-float-label > span:after,
+.has-float-label label:after {
+  background: #fff !important;
+}
+
+.form-control {
+  border-radius: 0.1rem;
+  outline: medium none invert !important;
+  outline: initial !important;
+  box-shadow: none !important;
+  font-size: 0.8rem;
+  padding: 0.75rem;
+  line-height: 1.5;
+  border: 1px solid #d7d7d7;
+  background: #fff;
+  color: #212121;
+  height: auto;
+}
+
+// Anchor
+a {
+  color: #212121;
+  -webkit-transition: color 0.2s;
+  transition: color 0.2s;
+}
+
+a:active,
+a:hover {
+  text-decoration: none;
+  text-decoration: initial;
+  color: $red;
+}
+
+// Button
+.btn-multiple-state {
+  position: relative;
+  -webkit-transition: opacity 0.5s;
+  transition: opacity 0.5s;
+}
+
+
+.btn-group-lg > .btn,
+.btn-lg {
+  line-height: 1.5;
+  font-weight: 700;
+  letter-spacing: 0.05rem;
+  padding: 0.75rem 2.6rem 0.6rem;
+}
+
+.btn-primary {
+  background-color: $red;
+  border-color: $red;
+  color: #fff;
+}
+
+.btn-group-lg > .btn,
+.btn-group-sm > .btn,
+.btn-lg {
+  border-radius: 50px;
+}
+
+.btn {
+  border-radius: 50px;
+  outline: medium none invert !important;
+  outline: initial !important;
+  box-shadow: none !important;
+  font-size: 0.8rem;
+  padding: 0.75rem 1.3rem 0.6rem;
+}
+
+.btn-primary:hover {
+  color: #fff;
+  background-color: $red-dark;
+  border-color: $red-dark;
+}
+
+.btn-shadow {
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.15), 0 1px 3px 1px rgba(0, 0, 0, 0.15) !important;
+}
