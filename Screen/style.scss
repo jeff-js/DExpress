@@ -41,7 +41,8 @@ $shadowOffsetsBottom: 1 3 6 10 15;
 $shadowBlursBottom: 3 6 6 5 6;
 $shadowOpacitiesBottom: 0.1 0.3 0.6 0.7 0.8;
 
-$bgImage: "images/pizza.jpg";
+$bg-image-login: "images/pizza.jpg";
+$bg-image-register: "images/point-of-sale.jpg";
 
 :root {
   --theme-color-1: #{$theme-color-1};
@@ -99,6 +100,18 @@ $bgImage: "images/pizza.jpg";
   $blur: nth($shadowBlursBottom, $depth) * 5px;
   $color: rgba(black, nth($shadowOpacitiesBottom, $depth));
   @return 0 $primary-offset $blur $color;
+}
+
+@mixin fixed-background($bg-image) {
+  background: url($bg-image) no-repeat 50% fixed;
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
 }
 
 /* 02.Base */
@@ -207,7 +220,11 @@ p {
   font-family: "Nunito", sans-serif;
 }
 
-/* 03.Buttons */
+main {
+  overflow-y: auto;
+}
+
+/* 03.UI Controls */
 
 button {
   color: var(--primary-color);
@@ -252,7 +269,50 @@ button {
   }
 }
 
-/* 04.Cards */
+.check-button {
+  cursor: default !important;
+}
+
+.check-button.btn-primary {
+  background-color: var(--theme-color-3) !important;
+  border-color: var(--theme-color-3) !important;
+  opacity: 1;
+}
+
+.check-button .custom-control {
+  min-height: 1.1rem;
+  margin-top: -8px;
+}
+
+/* 04.Forms */
+
+.av-invalid .av-label,
+.form-group.text-danger,
+.was-validated .custom-control-input:invalid ~ .custom-control-label,
+.custom-control-input.is-invalid ~ .custom-control-label,
+.was-validated .form-check-input:invalid ~ .form-check-label,
+.form-check-input.is-invalid ~ .form-check-label {
+  color: $primary-color !important;
+}
+
+.custom-checkbox .custom-control-label.indeterminate::after {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 4'%3E%3Cpath stroke='"+encodecolor(
+      $button-text-color
+    )+"' d='M0 2h4'/%3E%3C/svg%3E");
+}
+
+.custom-checkbox .custom-control-input:checked ~ .custom-control-label::after {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3E%3Cpath fill='"+encodecolor(
+      $button-text-color
+    )+"' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3E%3C/svg%3E");
+}
+
+.form-check-label,
+.custom-control-label {
+  line-height: 24px !important;
+}
+
+/* 05.Cards */
 .card {
   border: initial;
   background: var(--foreground-color);
@@ -308,7 +368,7 @@ button {
   }
 }
 
-/* 05.Floating Label */
+/* 06.Floating Label */
 .has-float-label {
   display: block;
   position: relative;
@@ -578,15 +638,7 @@ button {
 /* 100.Login */
 #login {
   &.fixed-background {
-    background: url($bgImage) no-repeat 50% fixed;
-    background-size: cover;
-    height: 100%;
-    width: 100%;
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
+    @include fixed-background($bg-image-login);
   }
 
   .card {
@@ -647,6 +699,70 @@ button {
       .logo-shop {
         height: 160px;
       }
+    }
+
+    .content-side {
+      border-top-right-radius: 0.75rem;
+      border-bottom-left-radius: 0;
+      padding: 16px 32px;
+
+      .logo img {
+        height: 64px;
+      }
+    }
+  }
+}
+
+/* 101.Register */
+#register {
+  &.fixed-background {
+    @include fixed-background($bg-image-register);
+  }
+
+  .card {
+    background: transparent;
+    border-radius: 0.75rem;
+    @include depth(1);
+  }
+
+  .lt-side {
+    background: rgba(0, 0, 0, 0.75);
+    border-top-left-radius: 0.75rem;
+    border-top-right-radius: 0.75rem;
+    border-bottom-left-radius: 0;
+    flex-direction: column;
+    padding: 8px 40px;
+    text-align: center;
+
+    h1 {
+      color: white;
+      line-height: 1.6rem;
+    }
+    p {
+      color: var(--theme-color-3);
+    }
+  }
+
+  .content-side {
+    background: white;
+    border-top-right-radius: 0;
+    border-bottom-left-radius: 0.75rem;
+    border-bottom-right-radius: 0.75rem;
+    padding: 8px 16px;
+
+    a {
+      text-decoration: underline;
+    }
+
+    .logo img {
+      height: 40px;
+    }
+  }
+
+  @include media-breakpoint-up(lg) {
+    .lt-side {
+      border-top-right-radius: 0;
+      border-bottom-left-radius: 0.75rem;
     }
 
     .content-side {

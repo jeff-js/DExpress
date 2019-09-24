@@ -139,7 +139,11 @@ p {
   font-family: "Nunito", sans-serif;
 }
 
-/* 03.Buttons */
+main {
+  overflow-y: auto;
+}
+
+/* 03.UI Controls */
 button {
   color: var(--primary-color);
   outline: initial !important;
@@ -187,7 +191,45 @@ button {
   border-color: #b30d21;
 }
 
-/* 04.Cards */
+.check-button {
+  cursor: default !important;
+}
+
+.check-button.btn-primary {
+  background-color: var(--theme-color-3) !important;
+  border-color: var(--theme-color-3) !important;
+  opacity: 1;
+}
+
+.check-button .custom-control {
+  min-height: 1.1rem;
+  margin-top: -8px;
+}
+
+/* 04.Forms */
+.av-invalid .av-label,
+.form-group.text-danger,
+.was-validated .custom-control-input:invalid ~ .custom-control-label,
+.custom-control-input.is-invalid ~ .custom-control-label,
+.was-validated .form-check-input:invalid ~ .form-check-label,
+.form-check-input.is-invalid ~ .form-check-label {
+  color: #212121 !important;
+}
+
+.custom-checkbox .custom-control-label.indeterminate::after {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 4'%3E%3Cpath stroke='encodecolor(white)' d='M0 2h4'/%3E%3C/svg%3E");
+}
+
+.custom-checkbox .custom-control-input:checked ~ .custom-control-label::after {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3E%3Cpath fill='encodecolor(white)' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3E%3C/svg%3E");
+}
+
+.form-check-label,
+.custom-control-label {
+  line-height: 24px !important;
+}
+
+/* 05.Cards */
 .card {
   border: initial;
   background: var(--foreground-color);
@@ -249,7 +291,7 @@ button {
   }
 }
 
-/* 05.Floating Label */
+/* 06.Floating Label */
 .has-float-label {
   display: block;
   position: relative;
@@ -603,6 +645,79 @@ button {
     padding: 16px 32px;
   }
   #login .content-side .logo img {
+    height: 64px;
+  }
+}
+
+/* 101.Register */
+#register.fixed-background {
+  background: url("images/point-of-sale.jpg") no-repeat 50% fixed;
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+#register .card {
+  background: transparent;
+  border-radius: 0.75rem;
+  -webkit-box-shadow: 0 1px 15px rgba(0, 0, 0, 0.1), 0 1px 8px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 1px 15px rgba(0, 0, 0, 0.1), 0 1px 8px rgba(0, 0, 0, 0.1);
+}
+
+#register .lt-side {
+  background: rgba(0, 0, 0, 0.75);
+  border-top-left-radius: 0.75rem;
+  border-top-right-radius: 0.75rem;
+  border-bottom-left-radius: 0;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 8px 40px;
+  text-align: center;
+}
+
+#register .lt-side h1 {
+  color: white;
+  line-height: 1.6rem;
+}
+
+#register .lt-side p {
+  color: var(--theme-color-3);
+}
+
+#register .content-side {
+  background: white;
+  border-top-right-radius: 0;
+  border-bottom-left-radius: 0.75rem;
+  border-bottom-right-radius: 0.75rem;
+  padding: 8px 16px;
+}
+
+#register .content-side a {
+  text-decoration: underline;
+}
+
+#register .content-side .logo img {
+  height: 40px;
+}
+
+@media (min-width: 992px) {
+  #register .lt-side {
+    border-top-right-radius: 0;
+    border-bottom-left-radius: 0.75rem;
+  }
+  #register .content-side {
+    border-top-right-radius: 0.75rem;
+    border-bottom-left-radius: 0;
+    padding: 16px 32px;
+  }
+  #register .content-side .logo img {
     height: 64px;
   }
 }
