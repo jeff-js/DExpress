@@ -232,7 +232,7 @@ button {
 }
 
 .btn {
-  border-radius: 50px;
+  // border-radius: 50px;
   outline: initial !important;
   box-shadow: none !important;
   box-shadow: initial !important;
@@ -252,11 +252,11 @@ button {
   }
 }
 
-.btn-lg,
-.btn-group-lg > .btn,
-.btn-group-sm > .btn {
-  border-radius: 54px;
-}
+// .btn-lg,
+// .btn-group-lg > .btn,
+// .btn-group-sm > .btn {
+//   // border-radius: 54px;
+// }
 
 .btn-primary {
   background-color: var(--theme-color-4);
@@ -776,3 +776,6 @@ button {
     }
   }
 }
+
+/*  102.Choose cash register */
+ 
