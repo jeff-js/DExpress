@@ -161,6 +161,11 @@ button {
   transition: background-color box-shadow 0.1s linear;
 }
 
+.btn i {
+  font-size: 1.2rem;
+  line-height: 0.7;
+}
+
 .btn-shadow {
   -webkit-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.15), 0 1px 3px 1px rgba(0, 0, 0, 0.15) !important;
           box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.15), 0 1px 3px 1px rgba(0, 0, 0, 0.15) !important;
@@ -557,6 +562,72 @@ button {
   padding: 1.7rem 0.75rem 0.5rem 0.5rem;
 }
 
+/* 99.Common */
+main .image-side {
+  border-top-left-radius: 0.75rem;
+  border-top-right-radius: 0.75rem;
+  border-bottom-left-radius: 0;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 16px 40px;
+}
+
+main .image-side .logo-shop {
+  height: 136px;
+}
+
+main .image-side h1 {
+  line-height: 0.8rem;
+}
+
+main .image-side.dark {
+  background: rgba(0, 0, 0, 0.65);
+}
+
+main .image-side.dark h1 {
+  color: var(--theme-color-3);
+}
+
+main .image-side.light {
+  background: rgba(255, 255, 255, 0.65);
+}
+
+main .image-side.light h1 {
+  color: var(--theme-color-1);
+}
+
+main .content-side {
+  background: white;
+  border-top-right-radius: 0;
+  border-bottom-left-radius: 0.75rem;
+  border-bottom-right-radius: 0.75rem;
+  padding: 8px 16px;
+}
+
+main .content-side .logo img {
+  height: 40px;
+}
+
+@media (min-width: 992px) {
+  main .image-side {
+    border-top-right-radius: 0;
+    border-bottom-left-radius: 0.75rem;
+  }
+  main .image-side .logo-shop {
+    height: 160px;
+  }
+  main .content-side {
+    border-top-right-radius: 0.75rem;
+    border-bottom-left-radius: 0;
+    padding: 16px 32px;
+  }
+  main .content-side .logo img {
+    height: 64px;
+  }
+}
+
 /* 100.Login */
 #login.fixed-background {
   background: url("images/pizza.jpg") no-repeat 50% fixed;
@@ -575,71 +646,6 @@ button {
   border-radius: 0.75rem;
   -webkit-box-shadow: 0 1px 15px rgba(0, 0, 0, 0.1), 0 1px 8px rgba(0, 0, 0, 0.1);
           box-shadow: 0 1px 15px rgba(0, 0, 0, 0.1), 0 1px 8px rgba(0, 0, 0, 0.1);
-}
-
-#login .image-side {
-  border-top-left-radius: 0.75rem;
-  border-top-right-radius: 0.75rem;
-  border-bottom-left-radius: 0;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  padding: 16px 40px;
-}
-
-#login .image-side .logo-shop {
-  height: 136px;
-}
-
-#login .image-side h1 {
-  line-height: 0.8rem;
-}
-
-#login .image-side.dark {
-  background: rgba(0, 0, 0, 0.65);
-}
-
-#login .image-side.dark h1 {
-  color: var(--theme-color-3);
-}
-
-#login .image-side.light {
-  background: rgba(255, 255, 255, 0.65);
-}
-
-#login .image-side.light h1 {
-  color: var(--theme-color-1);
-}
-
-#login .content-side {
-  background: white;
-  border-top-right-radius: 0;
-  border-bottom-left-radius: 0.75rem;
-  border-bottom-right-radius: 0.75rem;
-  padding: 8px 16px;
-}
-
-#login .content-side .logo img {
-  height: 40px;
-}
-
-@media (min-width: 992px) {
-  #login .image-side {
-    border-top-right-radius: 0;
-    border-bottom-left-radius: 0.75rem;
-  }
-  #login .image-side .logo-shop {
-    height: 160px;
-  }
-  #login .content-side {
-    border-top-right-radius: 0.75rem;
-    border-bottom-left-radius: 0;
-    padding: 16px 32px;
-  }
-  #login .content-side .logo img {
-    height: 64px;
-  }
 }
 
 /* 101.Register */
@@ -684,20 +690,8 @@ button {
   color: var(--theme-color-3);
 }
 
-#register .content-side {
-  background: white;
-  border-top-right-radius: 0;
-  border-bottom-left-radius: 0.75rem;
-  border-bottom-right-radius: 0.75rem;
-  padding: 8px 16px;
-}
-
 #register .content-side a {
   text-decoration: underline;
-}
-
-#register .content-side .logo img {
-  height: 40px;
 }
 
 @media (min-width: 992px) {
@@ -716,4 +710,56 @@ button {
 }
 
 /*  102.Choose cash register */
+#choose-cash-register.fixed-background {
+  background: url("images/pizza.jpg") no-repeat 50% fixed;
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+#choose-cash-register .card {
+  background: transparent;
+  border-radius: 0.75rem;
+  -webkit-box-shadow: 0 1px 15px rgba(0, 0, 0, 0.1), 0 1px 8px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 1px 15px rgba(0, 0, 0, 0.1), 0 1px 8px rgba(0, 0, 0, 0.1);
+}
+
+#choose-cash-register .search {
+  position: relative;
+  margin-right: 0.5rem;
+}
+
+#choose-cash-register .search input {
+  background: transparent;
+  outline: initial !important;
+  padding: 0.5rem 1rem 0.5rem 40px;
+  line-height: 1.75;
+  color: #212121;
+}
+
+#choose-cash-register .search .search-icon {
+  font-size: 17px;
+  border-radius: 10px;
+  color: var(--theme-color-1);
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  bottom: -10px;
+  left: 3px;
+  text-align: center;
+  cursor: pointer;
+}
+
+#choose-cash-register .btn {
+  height: calc(1.5rem + 0.75rem + 2px);
+}
+
+#choose-cash-register tbody tr {
+  cursor: pointer;
+}
 /*# sourceMappingURL=style.css.map */
