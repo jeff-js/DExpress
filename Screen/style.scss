@@ -3,10 +3,6 @@
 /* 00.Variables and Imports */
 @import url("https://fonts.googleapis.com/css?family=Nunito:300,400,400i,600,700");
 
-@import "node_modules/bootstrap/scss/functions";
-@import "node_modules/bootstrap/scss/variables";
-@import "node_modules/bootstrap/scss/mixins/_breakpoints";
-
 $gunmetal-color: #2b2d42;
 $gray-blue-color: #8d99ae;
 $flash-white-color: #edf2f4;
@@ -29,6 +25,14 @@ $theme-color-2: $gray-blue-color;
 $theme-color-3: $flash-white-color;
 $theme-color-4: $red-color;
 $theme-color-5: $apple-red-color;
+
+$primary: #d7d7d7;
+$secondary: $apple-red-color;
+
+// @import "node_modules/bootstrap/scss/functions";
+// @import "node_modules/bootstrap/scss/variables";
+// @import "node_modules/bootstrap/scss/mixins/_breakpoints";
+@import "node_modules/bootstrap/scss/bootstrap";
 
 $animation-time-long: 1000ms;
 $animation-time-short: 200ms;
@@ -642,6 +646,36 @@ button {
 
 /* 99.Common */
 main {
+  .btn {
+    height: calc(1.5rem + 0.75rem + 2px);
+  }
+
+  .search {
+    position: relative;
+    margin-left: 0.5rem;
+
+    input {
+      background: transparent;
+      outline: initial !important;
+      padding: 0.5rem 1rem 0.5rem 40px;
+      line-height: 1.75;
+      color: $primary-color;
+    }
+
+    .search-icon {
+      font-size: 17px;
+      border-radius: 10px;
+      color: var(--theme-color-1);
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      bottom: -10px;
+      left: 3px;
+      text-align: center;
+      cursor: pointer;
+    }
+  }
+
   .image-side {
     border-top-left-radius: 0.75rem;
     border-top-right-radius: 0.75rem;
@@ -787,37 +821,69 @@ main {
     @include depth(1);
   }
 
-  .search {
-    position: relative;
-    margin-right: 0.5rem;
-
-    input {
-      background: transparent;
-      outline: initial !important;
-      padding: 0.5rem 1rem 0.5rem 40px;
-      line-height: 1.75;
-      color: $primary-color;
-    }
-
-    .search-icon {
-      font-size: 17px;
-      border-radius: 10px;
-      color: var(--theme-color-1);
-      position: absolute;
-      width: 40px;
-      height: 40px;
-      bottom: -10px;
-      left: 3px;
-      text-align: center;
-      cursor: pointer;
-    }
-  }
-
-  .btn {
-    height: calc(1.5rem + 0.75rem + 2px);
-  }
-  
   tbody tr {
     cursor: pointer;
+  }
+}
+
+/*  103.Lock Screen */
+#lock-screen {
+  &.fixed-background {
+    @include fixed-background($bg-image-login);
+  }
+
+  .card {
+    border-radius: 0.75rem;
+    @include depth(1);
+
+    .card-body {
+      padding: 1.25rem;
+    }
+  }
+
+  .search {
+    margin: 0;
+  }
+
+  .pin-display {
+    border: 1px solid var(--separator-color);
+    border-bottom: none;
+    border-radius: 0;
+    height: 4rem;
+
+    & .form-control-lg {
+      display: flex !important;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+    }
+  }
+
+  .pin-container {
+    border: 1px solid var(--separator-color);
+    border-right: none;
+    border-bottom: none;
+
+    .btn {
+      border-radius: 0;
+      border-top: none;
+      border-left: none;
+      font-weight: bold;
+      height: 3rem;
+    }
+    .btn-success {
+      padding: 0;
+    }
+    .col-4 {
+      padding: 0;
+    }
+  }
+
+  @include media-breakpoint-up(md) {
+    .card {
+      .card-body {
+        padding: 1.75rem;
+      }
+    }
   }
 }
